@@ -1,7 +1,16 @@
+@keyframes weth {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 * {
   margin: 0;
   padding: 0;
   font-family: "Mulish", sans-serif;
+  color: #6D2932;
 }
 
 html, body {
@@ -29,8 +38,8 @@ a {
   align-items: center;
 }
 .weatherSect .weatherCont {
-  height: 80%;
-  width: 70%;
+  height: 80vh;
+  width: 80vw;
   border-radius: 10px;
   padding: 30px;
   background-color: #561C24;
@@ -39,15 +48,18 @@ a {
   flex-direction: column;
 }
 .weatherSect .weatherCont .WeatherForecast {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 3fr 2fr;
-  gap: 20px;
+  grid-template-rows: 1fr 4fr 1fr 2fr;
+  gap: 10px;
   background-color: #C7B7A3;
   border-radius: 10px;
   height: 100%;
   width: 100%;
   margin-top: 10px;
+  transition: all 1s;
 }
 .weatherSect .weatherCont .WeatherForecast .aboutCity {
   display: flex;
@@ -69,13 +81,26 @@ a {
   justify-content: center;
 }
 .weatherSect .weatherCont .WeatherForecast .iconOfWeather .imgOfWeather {
-  width: 80%;
+  max-width: 60%;
+  animation: weth 2s;
+}
+.weatherSect .weatherCont .WeatherForecast .airinfo {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weatherSect .weatherCont .WeatherForecast .airinfo ul li {
+  display: flex;
+  align-items: center;
+}
+.weatherSect .weatherCont .WeatherForecast .airinfo ul li .airimg {
+  height: 20px;
 }
 .weatherSect .weatherCont .WeatherForecast .temp {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  row-gap: 40px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -104,6 +129,7 @@ a {
   text-align: center;
   transition: all 1s;
   color: white;
+  border-radius: 10px;
 }
 .weatherSect .weatherCont .weatheInpCont .cityName:focus {
   background: -webkit-linear-gradient(#561C24 0%, #6D2932 80%);
